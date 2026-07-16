@@ -1,0 +1,12 @@
+{:itonami.blueprint/id "cloud-itonami-8230"
+ :itonami.blueprint/name "Organization of Conventions and Trade Shows"
+ :itonami.blueprint/isic-rev5 "8230"
+ :itonami.blueprint/domain :events/conventions-trade-shows
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:public-safety :local-economy :transparency]
+ :itonami.blueprint/governor :event-operations-governor
+ :itonami.blueprint/robotics true
+ :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger :logistics]
+ :itonami.blueprint/optional-technologies []
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/maturity :implemented}
