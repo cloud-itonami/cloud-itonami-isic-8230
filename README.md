@@ -170,14 +170,14 @@ clojure -M:run
 
 ### Test suite
 
-- `test/eventops/governor_test.clj` -- unit tests of governor hard
+- `test/eventops/governor_test.kotoba` -- unit tests of governor hard
   checks, scope exclusion, and the self-trip regression test
-- `test/eventops/advisor_test.clj` -- advisor proposal shape and
+- `test/eventops/advisor_test.kotoba` -- advisor proposal shape and
   consistency
-- `test/eventops/phase_test.clj` -- rollout phase logic
-- `test/eventops/governor_contract_test.clj` -- full graph integration,
+- `test/eventops/phase_test.kotoba` -- rollout phase logic
+- `test/eventops/governor_contract_test.kotoba` -- full graph integration,
   audit trail
-- `test/eventops/store_contract_test.clj` -- Store protocol and MemStore
+- `test/eventops/store_contract_test.kotoba` -- Store protocol and MemStore
   implementation
 
 ### Modules
