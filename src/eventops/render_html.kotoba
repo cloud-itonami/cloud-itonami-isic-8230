@@ -13,7 +13,7 @@
   consecutive runs).
 
   NOTE for future porters of this template: this repo's OWN
-  `eventops.sim` demo driver (`clojure -M:dev:run`) was checked BEFORE
+  `eventops.sim` demo driver (`kbb -M:dev:run`) was checked BEFORE
   writing this file and confirmed clean -- every id it drives
   (venue-1/venue-2/venue-3/venue-99, vendor-1/vendor-2) matches
   `eventops.store/demo-data` exactly, and every governor-hold basis
@@ -34,7 +34,7 @@
   exhibit the isic-4322-class silent-no-op bug (a commit node that
   claims to write but never calls the real store-mutation function).
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [jp-go-dds.skin]
             [kotoba.lang.text :as str]
@@ -186,7 +186,7 @@
      "<main>\n"
      "  <section class=\"card\">\n"
      "    <h2>Venues</h2>\n"
-     "    <p class=\"muted\">Demo snapshot — build-time-generated from <code>eventops.store</code> via <code>eventops.render-html</code> (<code>clojure -M:dev:render-html</code>), regenerated nightly.</p>\n"
+     "    <p class=\"muted\">Demo snapshot — build-time-generated from <code>eventops.store</code> via <code>eventops.render-html</code> (<code>kbb -M:dev:render-html</code>), regenerated nightly.</p>\n"
      "    <table>\n"
      "      <thead><tr><th>Venue</th><th>Name</th><th>Registration status</th><th>Last op status</th></tr></thead>\n"
      "      <tbody>\n"
