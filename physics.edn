@@ -1,0 +1,34 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": robots may do exhibitor booth setup, signage
+;; placement and AV rigging for a convention / trade-show organizer
+;; (ISIC 8230), with this actor as the coordination layer. The physical work
+;; declared here: a crate AMR moving tall booth crates across the exhibit
+;; hall during build-up, and proof-loading the steel wire-rope sling that
+;; hangs an AV hoist point from the hall roof.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-8230"
+ :cases
+ [{:id :booth-crate-across-hall
+   :kind :transport
+   :procedure "crate AMR carries a tall booth crate from the loading dock to the exhibitor's stand and brakes hard for people in the aisle"
+   :params {:mass-kg 150.0 :distance-m 120.0 :v-max-mps 1.2 :a-max-mps2 0.4
+            :brake-decel-mps2 1.2 :drive-force-n 400.0 :crr 0.015
+            :cog-height-m 0.30 :payload-cog-height-m 0.90 :support-half-length-m 0.45
+            :max-time-s 1800.0}
+   :sweep {:param :payload-kg :values [50.0 150.0 300.0 500.0 800.0]}
+   :quantity :min-tipover-margin
+   :limit {:min 0.3 :basis "estimate: keep 30 % of the static restoring moment for floor-cable ramps and a load shifting in the crate"}}
+  {:id :av-hoist-sling-proof-load
+   :kind :material
+   :procedure "rigging robot proof-loads the 6 mm steel wire-rope sling of an AV hoist point; broken and worn wires reduce its metallic area"
+   :params {:length-m 0.10 :youngs-modulus-pa 100.0e9 :yield-stress-pa 1400.0e6 :hardening-pa 2.0e9
+            :density-kg-m3 7850.0 :max-force-n 25000.0}
+   :sweep {:param :area-m2 :values [14.4e-6 12.5e-6 11.0e-6 9.5e-6 8.0e-6]}
+   :quantity :yield-force-n
+   :limit {:min 14715.0 :basis "estimate: 300 kg hoist point times a 5:1 rigging design factor; rope metallic area ~0.4 d^2, effective rope modulus 100 GPa and yield ~0.8 of a 1770 MPa wire grade"}
+   :boundary {:lo 6.0e-6 :hi 16.0e-6}}]}
